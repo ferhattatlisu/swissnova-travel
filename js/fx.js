@@ -271,7 +271,17 @@
   function buildProgress() { if (prog) return; var d = document.createElement("div"); d.className = "prog"; d.innerHTML = "<i></i>"; document.body.appendChild(d); prog = d.firstChild; }
 
   /* ---------- sayfa içi tarama: kelime bölme, yazı kayması, paralaks, bant, mıknatıs ---------- */
-  var par = [], marq = [], pend = [], io = null, navEl = null, heroIn = null, cueEl = null;
+  var par = [], marq = [], pend = [], io = null, navEl = null, heroIn = null, cueEl = null, fabIO = null, fabSet = [];
+  /* telefonda WhatsApp balonu: hero, form, iletişim ve alt bilgi görünürken gizlenir (düğmeleri/yazıyı kapatmasın) */
+  function watchFab(r) {
+    if (fabIO) { fabIO.disconnect(); fabIO = null; } fabSet = []; document.body.classList.remove("fab-off");
+    if (!("IntersectionObserver" in window)) return;
+    fabIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { var i = fabSet.indexOf(e.target); if (e.isIntersecting) { if (i < 0) fabSet.push(e.target); } else if (i >= 0) fabSet.splice(i, 1); });
+      document.body.classList.toggle("fab-off", fabSet.length > 0);
+    }, { threshold: 0 });
+    $$("#hero,#planla,#iletisim,.foot", r).forEach(function (el) { fabIO.observe(el); });
+  }
   function splitWords(el) {
     if (el._sp) return; el._sp = 1; var n = 0;
     (function walk(node) {
@@ -319,6 +329,7 @@
     if (!add) {
       par = []; marq = []; pend = []; if (io) { io.disconnect(); io = null; }
       navEl = document.getElementById("nav"); heroIn = $(".hero-in"); cueEl = $(".cue");
+      watchFab(r);
     }
     $$('[data-rv="split"]', r).forEach(splitWords);
     $$('[data-rv="chars"]', r).forEach(function (el) { if (!el._ch) { el._ch = 1; el.classList.add("cs"); el.innerHTML = chars(el.textContent); } });
@@ -384,6 +395,7 @@
       if (!root.classList.contains("menu-open")) {
         if (dy > 6 && y > 320) navEl.classList.add("hide"); else if (dy < -4 || y < 200) navEl.classList.remove("hide");
       }
+      document.body.classList.toggle("nav-off", navEl.classList.contains("hide"));   /* telefonda aşağı kaydırırken WhatsApp balonu da çekilir */
     }
     for (var i = 0; i < par.length; i++) if (pv[i] !== null) par[i].el.style.transform = "translate3d(0," + pv[i].toFixed(1) + "px,0)";
     if (heroIn) {

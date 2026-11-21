@@ -52,7 +52,7 @@
       pack_price: "per person, based on a group of 6 (minimum 4 travelers)",
       pic_t: "The picnic", pic_p: "Most tours include a private picnic prepared to your preferences: Swiss cheese and local specialties, fresh bread, seasonal fruit, light snacks. Vegetarian options on request.", pic_n: "City tours do not include a picnic.",
       wx_t: "If the weather turns", wx_p: "Mountain weather changes fast. On high-altitude tours we can suggest a nearby alternative for the same day.", wx_note: "Draft pairings, to be confirmed by Swissnova.", wx_label: "Weather plan B", wx_instead: "Plan B for this tour", wx_if: "If the mountain is clouded in:",
-      plan_t: "Plan your day", plan_p: "Choose a tour, change the stops, tell us the date. We receive it on WhatsApp and reply with availability.", f_tour: "Tour", f_custom: "Not sure yet, show me ideas", f_date: "Date", f_guests: "Guests", f_pick: "Pickup hotel or area", f_stops: "Stops you want", f_notes: "Anything else", send: "Send on WhatsApp", not_booking: "This is a request, not a confirmed booking.", msg_prev: "Message preview",
+      plan_t: "Plan your day", plan_p: "Choose a tour, change the stops, tell us the date. We receive it on WhatsApp and reply with availability.", f_tour: "Tour", f_custom: "Not sure yet, show me ideas", f_date: "Date", f_date_ph: "Select a date", f_guests: "Guests", f_pick: "Pickup hotel or area", f_stops: "Stops you want", f_notes: "Anything else", send: "Send on WhatsApp", not_booking: "This is a request, not a confirmed booking.", msg_prev: "Message preview",
       c_t: "Talk to us", c_p: "WhatsApp is the fastest way. We answer by e-mail and phone as well.",
       back: "← All tours", next: "Next tour", facts_p: "Price", facts_t: "Day", facts_pick: "Pickup areas", pickup_time: "Pickup 08:00 · return 18:00", pickup_note: "Typical schedule shown on the current site, to be confirmed per tour.", vehicle: "Mercedes-Benz V-Class · 7 seats · private",
       inc: "Included", exc: "Not included", tips: "Tips and personal expenses", hl: "Highlights", book_wa: "Ask about this tour", custom: "Customize this tour",
@@ -76,7 +76,7 @@
       pack_price: "pro Person, basierend auf 6 Personen (mind. 4 Reisende)",
       pic_t: "Das Picknick", pic_p: "Die meisten Touren enthalten ein privates Picknick nach Ihren Wünschen: Schweizer Käse und lokale Spezialitäten, frisches Brot, Saisonfrüchte, kleine Snacks. Vegetarisch auf Anfrage.", pic_n: "Städtetouren enthalten kein Picknick.",
       wx_t: "Wenn das Wetter kippt", wx_p: "Das Bergwetter ändert sich schnell. Bei Touren in grosser Höhe schlagen wir eine nahe Alternative für denselben Tag vor.", wx_note: "Entwurf, von Swissnova zu bestätigen.", wx_label: "Wetter-Plan B", wx_instead: "Plan B für diese Tour", wx_if: "Wenn der Berg in Wolken steckt:",
-      plan_t: "Tag planen", plan_p: "Tour wählen, Stopps anpassen, Datum angeben. Die Anfrage kommt per WhatsApp, wir melden uns mit der Verfügbarkeit.", f_tour: "Tour", f_custom: "Noch unsicher, zeigt mir Ideen", f_date: "Datum", f_guests: "Gäste", f_pick: "Abholhotel oder Gebiet", f_stops: "Gewünschte Stopps", f_notes: "Sonstiges", send: "Per WhatsApp senden", not_booking: "Dies ist eine Anfrage, keine bestätigte Buchung.", msg_prev: "Nachrichtenvorschau",
+      plan_t: "Tag planen", plan_p: "Tour wählen, Stopps anpassen, Datum angeben. Die Anfrage kommt per WhatsApp, wir melden uns mit der Verfügbarkeit.", f_tour: "Tour", f_custom: "Noch unsicher, zeigt mir Ideen", f_date: "Datum", f_date_ph: "Datum wählen", f_guests: "Gäste", f_pick: "Abholhotel oder Gebiet", f_stops: "Gewünschte Stopps", f_notes: "Sonstiges", send: "Per WhatsApp senden", not_booking: "Dies ist eine Anfrage, keine bestätigte Buchung.", msg_prev: "Nachrichtenvorschau",
       c_t: "Schreiben Sie uns", c_p: "Am schnellsten per WhatsApp. Wir antworten auch per E-Mail und Telefon.",
       back: "← Alle Touren", next: "Nächste Tour", facts_p: "Preis", facts_t: "Tag", facts_pick: "Abholgebiete", pickup_time: "Abholung 08:00 · Rückkehr 18:00", pickup_note: "Typischer Ablauf der aktuellen Website, pro Tour zu bestätigen.", vehicle: "Mercedes-Benz V-Klasse · 7 Sitze · privat",
       inc: "Inbegriffen", exc: "Nicht inbegriffen", tips: "Trinkgeld und persönliche Ausgaben", hl: "Highlights", book_wa: "Zu dieser Tour fragen", custom: "Tour anpassen",
@@ -125,7 +125,7 @@
     }).join("") + '</nav><div class="menu-foot">' + langSwitch() + '<a href="' + wa("Hello Swissnova Travel") + '" target="_blank" rel="noopener">' + t("wa") + ' +41 76 735 55 60</a><a href="mailto:' + MAIL + '">' + MAIL + "</a></div></div>";
   }
   function footer() {
-    return '<footer class="foot dark"><div class="wrap"><div class="fw" data-rv="chars" aria-hidden="true">SWISSNOVA</div><div class="cols"><div><div class="logo" style="font-size:26px">Swissnova<i>Travel</i></div><p style="margin-top:12px;opacity:.7;max-width:36ch">' + t("foot_p") + '</p></div>' +
+    return '<footer class="foot dark"><div class="wrap"><div class="fw" data-rv="chars" aria-hidden="true">SWISSNOVA</div><div class="cols"><div><div class="logo flogo" style="font-size:26px">Swissnova<i>Travel</i></div><p style="margin-top:12px;opacity:.7;max-width:36ch">' + t("foot_p") + '</p></div>' +
       '<div><p class="label" style="margin-bottom:10px">' + t("n_contact") + '</p><a href="' + wa("Hello Swissnova Travel") + '">' + t("wa") + ' +41 76 735 55 60</a><br><a href="mailto:' + MAIL + '">' + MAIL + '</a></div>' +
       '<div><p class="label" style="margin-bottom:10px">Swissnova</p><a href="turlar.html" data-label="' + t("n_tours") + '">' + t("n_tours") + '</a><br><a href="index.html#planla" data-label="' + t("n_plan") + '">' + t("n_plan") + '</a></div></div>' +
       '<small>' + t("t_reg") + ' · ' + t("t_form") + ' · ' + t("t_hr") + '<br>' + t("foot_demo") + '<br>' + t("photos") + ' ' +
@@ -142,7 +142,7 @@
   function rowsHtml(list) {
     return '<div class="list">' + list.map(function (x, i) {
       var pr = x.kind === "package" ? chf(x.price) + "<small>" + t("per_person") + "</small>" : chf(x.price) + "<small>" + t("per_group") + " · " + t("up6") + "</small>";
-      return '<a class="row" data-rv="row" data-cur="' + t("view") + '" data-label="' + esc(x.title) + '" href="tur.html?id=' + x.slug + '" data-img="' + photo(x.img) + '"><span class="r-n">' + String(i + 1).padStart(2, "0") + '</span><span class="r-t">' + esc(x.title) + '<small>' + esc(x.sub) + '</small></span><span class="r-k">' + kindLabel(x.kind) + '</span><span class="r-p">' + pr + "</span></a>";
+      return '<a class="row" data-rv="row" data-cur="' + t("view") + '" data-label="' + esc(x.title) + '" href="tur.html?id=' + x.slug + '" data-img="' + photo(x.img) + '"><span class="r-n">' + String(i + 1).padStart(2, "0") + '</span><span class="r-t"><b>' + esc(x.title) + '</b><small>' + esc(x.sub) + '</small></span><span class="r-k">' + kindLabel(x.kind) + '</span><span class="r-p">' + pr + "</span></a>";
     }).join("") + "</div>";
   }
   function calcHtml(id, fixed) {
@@ -173,7 +173,7 @@
   function plannerHtml(pre) {
     var opts = '<option value="">' + t("f_custom") + "</option>" + TOURS.map(function (x) { return '<option value="' + x.slug + '"' + (x.slug === pre ? " selected" : "") + ">" + esc(x.title) + "</option>"; }).join("");
     return '<form class="calc" id="plan" onsubmit="return false"><div><label class="fl">' + t("f_tour") + '</label><select id="p-tour">' + opts + '</select></div>' +
-      '<div class="fgrid"><div><label class="fl">' + t("f_date") + '</label><input id="p-date" type="date"></div><div><label class="fl">' + t("f_guests") + '</label><select id="p-n">' + [1, 2, 3, 4, 5, 6].map(function (n) { return "<option" + (n === 2 ? " selected" : "") + ">" + n + "</option>"; }).join("") + "</select></div></div>" +
+      '<div class="fgrid"><div><label class="fl">' + t("f_date") + '</label><input id="p-date" type="date" class="empty" data-ph="' + t("f_date_ph") + '"></div><div><label class="fl">' + t("f_guests") + '</label><select id="p-n">' + [1, 2, 3, 4, 5, 6].map(function (n) { return "<option" + (n === 2 ? " selected" : "") + ">" + n + "</option>"; }).join("") + "</select></div></div>" +
       '<div><label class="fl">' + t("f_pick") + '</label><input id="p-pick" type="text" placeholder="Lucerne, Zurich, Interlaken …"></div>' +
       '<div><label class="fl">' + t("f_stops") + '</label><div class="stops" id="p-stops"></div></div>' +
       '<div><label class="fl">' + t("f_notes") + '</label><textarea id="p-notes" rows="3"></textarea></div>' +
@@ -208,6 +208,7 @@
       if (e.target.type === "checkbox") e.target.parentNode.classList.toggle("on", e.target.checked);
       upd(true);
     });
+    var dt = f.querySelector("#p-date"); function ph() { dt.classList.toggle("empty", !dt.value); } dt.addEventListener("input", ph); dt.addEventListener("change", ph);
     drawStops(); upd(false);
   }
   function badges(x) {
@@ -288,7 +289,7 @@
     var rx = document.getElementById("ribx");
     function closeRib() { var r = document.getElementById("rib"); if (!r) return; r.classList.add("bye"); setTimeout(function () { r.remove(); }, 520); }
     if (rx) rx.addEventListener("click", closeRib);
-    setTimeout(closeRib, 13000);   /* demo notu birkaç saniye sonra kendiliğinden çekilsin, düğmelerin üstünde kalmasın */
+    setTimeout(closeRib, innerWidth <= 860 ? 6000 : 13000);   /* demo notu birkaç saniye sonra kendiliğinden çekilsin, düğmelerin üstünde kalmasın */
     wirePlanner();
     if (page === "home") wireCalc("calc-home");
     if (page === "tour") wireCalc("calc-tour", window.__cur.slug);
