@@ -158,34 +158,15 @@
     if (e.persisted) { leaving = false; root.classList.remove("is-transitioning"); }
   });
 
-  /* ---------- akıcı kaydırma (yalnız fare/dokunmatik pad, hareket azaltma kapalıyken) ---------- */
-  var sm = { y: 0, t: 0, on: false, last: 0 }, smoothOn = false;
+  /* ---------- kaydırma ----------
+     21 Kas: fare tekerleğini ele geçiren "akıcı kaydırma" kaldırıldı. Her tekerlek olayını durdurup sayfayı JS ile
+     kaydırıyordu; bu, tarayıcının kendi (ekran kartında çalışan) akıcı kaydırmasını kapatıyor ve takılmaya yol açıyordu.
+     Artık kaydırma tamamen tarayıcıda; bağlantıyla bölüme gitmek için tarayıcının yumuşak kaydırması kullanılıyor. */
   function maxY() { return Math.max(0, root.scrollHeight - innerHeight); }
-  function smoothInit() {
-    if (smoothOn || reduce || !fine) return; smoothOn = true;
-    sm.y = sm.t = window.pageYOffset;
-    addEventListener("wheel", function (e) {
-      if (e.ctrlKey || e.metaKey || e.defaultPrevented) return;
-      if (root.classList.contains("is-loading") || root.classList.contains("is-transitioning") || root.classList.contains("menu-open")) return;
-      var tg = e.target; if (tg && tg.closest && tg.closest("textarea,select")) return;
-      e.preventDefault();
-      var d = e.deltaMode === 1 ? e.deltaY * 34 : e.deltaMode === 2 ? e.deltaY * innerHeight : e.deltaY;
-      if (!sm.on) sm.y = window.pageYOffset;
-      sm.t = clamp(sm.t + d, 0, maxY()); smRun();
-    }, { passive: false });
-    addEventListener("scroll", function () { if (!sm.on) { sm.y = sm.t = window.pageYOffset; } }, { passive: true });
-  }
-  function smRun() { if (sm.on) return; sm.on = true; sm.last = performance.now(); requestAnimationFrame(smStep); }
-  function smStep(now) {
-    var dt = Math.min(64, now - sm.last); sm.last = now;
-    var k = 1 - Math.pow(1 - .105, dt / 16.67), d = sm.t - sm.y;
-    if (Math.abs(d) < .5) { sm.y = sm.t; window.scrollTo(0, sm.y); sm.on = false; return; }
-    sm.y += d * k; window.scrollTo(0, sm.y); requestAnimationFrame(smStep);
-  }
+  function smoothInit() {}
   FX.scrollTo = function (y, instant) {
     y = clamp(y, 0, maxY());
-    if (instant || reduce) { window.scrollTo(0, y); sm.y = sm.t = y; return; }
-    if (smoothOn) { if (!sm.on) sm.y = window.pageYOffset; sm.t = y; smRun(); }
+    if (instant || reduce) window.scrollTo(0, y);
     else window.scrollTo({ top: y, behavior: "smooth" });
   };
 
@@ -242,6 +223,7 @@
       var nx = L[pk.which ^ 1]; nx.style.backgroundImage = "url(" + im + ")";
       L[pk.which].classList.remove("on"); nx.classList.add("on"); pk.which ^= 1; pk.img = im;
     }
+    if (!pk.on) { pk.w = el.offsetWidth; pk.h = el.offsetHeight; }   /* boyut bir kez ölçülür; her karede ölçmek sayfa düzenini yeniden hesaplatıyordu */
     el.classList.add("on"); pk.on = true;
   }
   function hidePeek(el) { el.classList.remove("on"); pk.on = false; }
@@ -337,9 +319,16 @@
     /* sayılar HTML'de gerçek değeriyle durur (botlar ve JS'siz okuyucu için); ekrana gelince 0'dan sayılsın */
     if (!reduce) $$("[data-count]", r).forEach(function (el) { if (!el.classList.contains("in")) el.textContent = "0"; });
     rollify(r); magnets(r);
-    $$("[data-par]", r).forEach(function (el) { par.push({ el: el, host: el.parentElement, s: parseFloat(el.getAttribute("data-par")) || .2 }); });
-    $$("[data-marq]", r).forEach(function (el) { marq.push({ el: el, inn: el.firstElementChild, x: 0, w: 0 }); });
+    /* paralaks yalnız fareli cihazda: telefonda kaydırma ekran kartında akar, JS ile kaydırılan görsel parmağın gerisinde kalıp titriyordu */
+    if (fine && !reduce) $$("[data-par]", r).forEach(function (el) { par.push({ el: el, host: el.parentElement, s: parseFloat(el.getAttribute("data-par")) || .2 }); });
+    $$("[data-marq]", r).forEach(function (el) {
+      var m = { el: el, inn: el.firstElementChild, x: 0, w: 0, vis: !("IntersectionObserver" in window) };
+      marq.push(m);
+      /* bant yalnız ekrandayken hareket etsin */
+      if (!m.vis) new IntersectionObserver(function (es) { m.vis = es[es.length - 1].isIntersecting; }).observe(el);
+    });
     pend = pend.concat($$("[data-rv]", r));
+    dirty = true;
     if (ready) startObs();
   };
 
@@ -374,56 +363,73 @@
     app.classList.add("swap");
     setTimeout(function () {
       var y = window.pageYOffset; closeMenu(); fn();
-      window.scrollTo(0, y); sm.y = sm.t = y;
+      window.scrollTo(0, y); dirty = true;
       setTimeout(function () { app.classList.remove("swap"); }, 40);
     }, 380);
   };
 
-  /* ---------- tek kare döngüsü ---------- */
-  var last = performance.now(), lastY = window.pageYOffset, vel = 0, dirS = 1, frame = 0;
+  /* ---------- tek kare döngüsü ----------
+     21 Kas: hafifletildi. Kaydırmaya bağlı işler (ilerleme çubuğu, menü, paralaks, hero) yalnız sayfa kaydığında ya da
+     boyut değiştiğinde yapılır; sayfa yüksekliği ve bant genişliği her karede değil, değişince ölçülür. Önceden döngü
+     sayfa dururken bile her karede ölçüp yazıyor, bazı karelerde sayfa düzenini yeniden hesaplatıyordu. */
+  var last = performance.now(), lastY = -1, lastVh = 0, vel = 0, dirS = 1, dirty = true, maxYc = 0;
+  addEventListener("resize", function () { dirty = true; }, { passive: true });
+  try { new ResizeObserver(function () { dirty = true; }).observe(document.documentElement); } catch (e) {}
+  var heroFx = fine && !reduce;   /* hero yazısının kaydırmayla kayması yalnız fareli cihazda (telefonda titriyordu) */
   function tick(now) {
-    var dt = Math.min(64, now - last); last = now; frame++;
-    var y = window.pageYOffset, vh = innerHeight, dy = y - lastY; lastY = y;
+    var dt = Math.min(64, now - last); last = now;
+    var y = window.pageYOffset, vh = innerHeight, dy = lastY < 0 ? 0 : y - lastY;
+    var moved = dirty || y !== lastY || vh !== lastVh;
+    lastY = y; lastVh = vh;
     vel += (dy - vel) * .18; if (Math.abs(dy) > 1) dirS = dy > 0 ? 1 : -1;
-    /* okumalar */
-    var pv = par.map(function (p) {
-      var r = p.host.getBoundingClientRect();
-      return (r.bottom < -120 || r.top > vh + 120) ? null : -((r.top + r.height / 2) - vh / 2) * p.s;
-    });
-    /* yazmalar */
-    if (prog) { var m = maxY(); prog.style.transform = "scaleX(" + (m > 0 ? clamp(y / m, 0, 1) : 0).toFixed(4) + ")"; }
-    if (navEl) {
-      navEl.classList.toggle("solid", y > 60);
-      if (!root.classList.contains("menu-open")) {
-        if (dy > 6 && y > 320) navEl.classList.add("hide"); else if (dy < -4 || y < 200) navEl.classList.remove("hide");
-      }
-      document.body.classList.toggle("nav-off", navEl.classList.contains("hide"));   /* telefonda aşağı kaydırırken WhatsApp balonu da çekilir */
+    if (dirty) {
+      /* ölçümler (yalnız gerektiğinde) */
+      maxYc = maxY();
+      marq.forEach(function (m) { m.w = m.inn.firstElementChild ? m.inn.firstElementChild.offsetWidth : 0; });
+      dirty = false;
     }
-    for (var i = 0; i < par.length; i++) if (pv[i] !== null) par[i].el.style.transform = "translate3d(0," + pv[i].toFixed(1) + "px,0)";
-    if (heroIn) {
-      var hp = clamp(y / (vh * .75), 0, 1);
-      heroIn.style.transform = hp > 0 ? "translate3d(0," + (-hp * 70).toFixed(1) + "px,0)" : "";
-      heroIn.style.opacity = hp > 0 ? String(1 - hp * 1.25 < 0 ? 0 : 1 - hp * 1.25) : "";
-      if (cueEl) cueEl.style.opacity = hp > 0 ? String(Math.max(0, .8 - hp * 3)) : "";
+    if (moved) {
+      /* okumalar */
+      var pv = par.map(function (p) {
+        var r = p.host.getBoundingClientRect();
+        return (r.bottom < -120 || r.top > vh + 120) ? null : -((r.top + r.height / 2) - vh / 2) * p.s;
+      });
+      /* yazmalar */
+      if (prog) prog.style.transform = "scaleX(" + (maxYc > 0 ? clamp(y / maxYc, 0, 1) : 0).toFixed(4) + ")";
+      if (navEl) {
+        navEl.classList.toggle("solid", y > 60);
+        if (!root.classList.contains("menu-open")) {
+          if (dy > 6 && y > 320) navEl.classList.add("hide"); else if (dy < -4 || y < 200) navEl.classList.remove("hide");
+        }
+        document.body.classList.toggle("nav-off", navEl.classList.contains("hide"));   /* telefonda aşağı kaydırırken WhatsApp balonu da çekilir */
+      }
+      for (var i = 0; i < par.length; i++) if (pv[i] !== null) par[i].el.style.transform = "translate3d(0," + pv[i].toFixed(1) + "px,0)";
+      if (heroIn) {
+        var hp = clamp(y / (vh * .75), 0, 1);
+        if (heroFx) heroIn.style.transform = hp > 0 ? "translate3d(0," + (-hp * 70).toFixed(1) + "px,0)" : "";
+        heroIn.style.opacity = hp > 0 ? String(1 - hp * 1.25 < 0 ? 0 : 1 - hp * 1.25) : "";
+        if (cueEl) cueEl.style.opacity = hp > 0 ? String(Math.max(0, .8 - hp * 3)) : "";
+      }
     }
     if (!reduce) marq.forEach(function (m) {
-      if (!m.w || frame % 120 === 0) m.w = m.inn.firstElementChild.offsetWidth;
-      if (!m.w) return;
+      if (!m.vis || !m.w) return;
       m.x -= dirS * (70 + Math.min(Math.abs(vel) * 38, 520)) * dt / 1000;
       if (m.x <= -m.w) m.x += m.w; if (m.x > 0) m.x -= m.w;
       m.inn.style.transform = "translate3d(" + m.x.toFixed(1) + "px,0,0)";
     });
-    if (cur) {
+    if (cur && (Math.abs(ctx - cx) > .15 || Math.abs(cty - cy) > .15)) {
       var k = 1 - Math.pow(1 - .22, dt / 16.67); cx += (ctx - cx) * k; cy += (cty - cy) * k;
       cur.style.transform = "translate3d(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px,0)";
     }
-    var pe = document.getElementById("peek");
-    if (pe && pk.on) {
-      var kk = 1 - Math.pow(1 - .16, dt / 16.67), w = pe.offsetWidth, h = pe.offsetHeight;
-      var tx = pk.tx + 64; if (tx + w > innerWidth - 16) tx = pk.tx - 64 - w;
-      var ty = clamp(pk.ty - h / 2, 70, innerHeight - h - 16);
-      pk.x += (tx - pk.x) * kk; pk.y += (ty - pk.y) * kk;
-      pe.style.transform = "translate3d(" + pk.x.toFixed(1) + "px," + pk.y.toFixed(1) + "px,0)";
+    if (pk.on) {
+      var pe = document.getElementById("peek");
+      if (pe) {
+        var kk = 1 - Math.pow(1 - .16, dt / 16.67), w = pk.w || 0, h = pk.h || 0;
+        var tx = pk.tx + 64; if (tx + w > innerWidth - 16) tx = pk.tx - 64 - w;
+        var ty = clamp(pk.ty - h / 2, 70, innerHeight - h - 16);
+        pk.x += (tx - pk.x) * kk; pk.y += (ty - pk.y) * kk;
+        pe.style.transform = "translate3d(" + pk.x.toFixed(1) + "px," + pk.y.toFixed(1) + "px,0)";
+      }
     }
     requestAnimationFrame(tick);
   }
