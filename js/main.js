@@ -12,6 +12,8 @@
   };
   var WA = "41767355560";               // Impressum'daki +41 76 735 55 60
   var MAIL = "info@swissnovatravel.com";
+  var TEL = "+41767355560";                              // aynı numara (Impressum): arama bağlantısı için
+  var IG = "https://www.instagram.com/swissnova_travel/", IGH = "@swissnova_travel";   // gerçek hesap (canlı sitedeki simgeler tema firmasına gidiyor, kullanılmadı)
   var page = document.body.getAttribute("data-page");
 
   var CREDITS = [
@@ -37,7 +39,7 @@
 
   var I = {
     en: {
-      n_tours: "Tours", n_why: "Why us", n_plan: "Plan your day", n_contact: "Contact", wa: "WhatsApp", menu: "Menu", scroll: "Scroll", view: "View",
+      n_tours: "Tours", n_why: "Why us", n_plan: "Plan your day", n_contact: "Contact", wa: "WhatsApp", menu: "Menu", call: "Call", scroll: "Scroll", view: "View",
       h1: ["PRIVATE DAYS", "IN THE ALPS"], h2: ["YOUR PACE", "YOUR ROUTE"], h3: ["ONE VAN", "ONE DAY"], h4: ["LAKES PEAKS", "AND PICNICS"],
       hero_sub: "Private day tours from Lucerne, Zurich and Interlaken in a Mercedes V-Class. Up to six guests, one group price.",
       cta_tours: "See the tours", cta_plan: "Plan your day",
@@ -61,7 +63,7 @@
       foot_p: "Private day tours and transfers in Switzerland.", foot_demo: "Demo design. Content taken from swissnovatravel.com on 19 Nov 2026, not yet approved.", photos: "Photos: Wikimedia Commons, representative only, to be replaced with Swissnova's own pictures.", rib: "Demo design: not the final site. Content from swissnovatravel.com, approval pending."
     },
     de: {
-      n_tours: "Touren", n_why: "Warum wir", n_plan: "Tag planen", n_contact: "Kontakt", wa: "WhatsApp", menu: "Menü", scroll: "Scrollen", view: "Ansehen",
+      n_tours: "Touren", n_why: "Warum wir", n_plan: "Tag planen", n_contact: "Kontakt", wa: "WhatsApp", menu: "Menü", call: "Anrufen", scroll: "Scrollen", view: "Ansehen",
       h1: ["PRIVATE TAGE", "IN DEN ALPEN"], h2: ["DEIN TEMPO", "DEINE ROUTE"], h3: ["EIN VAN", "EIN TAG"], h4: ["SEEN GIPFEL", "UND PICKNICK"],
       hero_sub: "Private Tagestouren ab Luzern, Zürich und Interlaken im Mercedes V-Klasse. Bis zu sechs Gäste, ein Gruppenpreis.",
       cta_tours: "Touren ansehen", cta_plan: "Tag planen",
@@ -95,6 +97,7 @@
   function wa(msg) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); }
   function kindLabel(k) { return t("k_" + k); }
   function waIcon() { return '<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path class="h" d="M8.4 7.6c-.5 1-.4 2.2.6 3.6 1.2 1.7 2.6 2.8 4.3 3.3 1 .3 2-.2 2.3-1l-1.7-1-.9.8c-.9-.3-2.2-1.5-2.8-2.5l.8-.8-.9-1.9z"/></svg>'; }
+  function igIcon() { return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>'; }
   /* hero başlığı: her satır harf harf (FX.chars ile aynı biçim) */
   function heroChars(s) {
     var n = 0;
@@ -122,11 +125,11 @@
     var items = [["turlar.html", t("n_tours")], [home + "#neden", t("n_why")], [home + "#planla", t("n_plan")], [(page === "home" ? "" : "index.html") + "#iletisim", t("n_contact")]];
     return '<div class="menu" id="menu"><nav>' + items.map(function (it, i) {
       return '<a href="' + it[0] + '" data-label="' + esc(it[1]) + '" style="--i:' + i + '"><span class="mk"><b>' + esc(it[1]) + '</b></span><em>0' + (i + 1) + "</em></a>";
-    }).join("") + '</nav><div class="menu-foot">' + langSwitch() + '<a href="' + wa("Hello Swissnova Travel") + '" target="_blank" rel="noopener">' + t("wa") + ' +41 76 735 55 60</a><a href="mailto:' + MAIL + '">' + MAIL + "</a></div></div>";
+    }).join("") + '</nav><div class="menu-foot">' + langSwitch() + '<a href="' + wa("Hello Swissnova Travel") + '" target="_blank" rel="noopener">' + t("wa") + ' +41 76 735 55 60</a><a href="mailto:' + MAIL + '">' + MAIL + '</a><a href="' + IG + '" target="_blank" rel="noopener">Instagram ' + IGH + "</a></div></div>";
   }
   function footer() {
     return '<footer class="foot dark"><div class="wrap"><div class="fw" data-rv="chars" aria-hidden="true">SWISSNOVA</div><div class="cols"><div><div class="logo flogo" style="font-size:26px">Swissnova<i>Travel</i></div><p style="margin-top:12px;opacity:.7;max-width:36ch">' + t("foot_p") + '</p></div>' +
-      '<div><p class="label" style="margin-bottom:10px">' + t("n_contact") + '</p><a href="' + wa("Hello Swissnova Travel") + '">' + t("wa") + ' +41 76 735 55 60</a><br><a href="mailto:' + MAIL + '">' + MAIL + '</a></div>' +
+      '<div><p class="label" style="margin-bottom:10px">' + t("n_contact") + '</p><a href="' + wa("Hello Swissnova Travel") + '">' + t("wa") + ' +41 76 735 55 60</a><br><a href="tel:' + TEL + '">' + t("call") + ' +41 76 735 55 60</a><br><a href="mailto:' + MAIL + '">' + MAIL + '</a><br><a href="' + IG + '" target="_blank" rel="noopener">Instagram ' + IGH + '</a></div>' +
       '<div><p class="label" style="margin-bottom:10px">Swissnova</p><a href="turlar.html" data-label="' + t("n_tours") + '">' + t("n_tours") + '</a><br><a href="index.html#planla" data-label="' + t("n_plan") + '">' + t("n_plan") + '</a></div></div>' +
       '<small>' + t("t_reg") + ' · ' + t("t_form") + ' · ' + t("t_hr") + '<br>' + t("foot_demo") + '<br>' + t("photos") + ' ' +
       CREDITS.map(function (c) { return esc(c[1]) + " — " + esc(c[2]) + ", " + c[3]; }).join(" · ") + '</small></div></footer>';
@@ -247,7 +250,7 @@
       '<section class="light sec"><div class="wrap two"><div><p class="label" data-rv="up">' + t("wx_label") + '</p><h2 class="h-lg" data-rv="split" style="margin:14px 0 18px">' + t("wx_t") + '</h2><p data-rv="up" data-d="300" style="opacity:.75;max-width:40ch">' + t("wx_p") + '</p></div>' +
       (ex && alt ? '<div class="card" data-rv="right"><div class="demo">' + t("wx_note") + '</div><p class="label">' + t("wx_if") + '</p><p style="font-size:24px;font-weight:700;margin:6px 0 16px">' + esc(ex.title) + '</p><p class="label">' + t("wx_instead") + '</p><a class="lnk" href="tur.html?id=' + alt.slug + '" data-label="' + esc(alt.title) + '" style="display:block;color:var(--red)">' + esc(alt.title) + " →</a></div>" : "") + "</div></section>" +
       '<section class="dark sec" id="planla"><div class="wrap two"><div><p class="label" data-rv="up">' + t("n_plan") + '</p><h2 class="h-lg" data-rv="split" style="margin:14px 0 18px">' + t("plan_t") + '</h2><p data-rv="up" data-d="300" style="opacity:.7;max-width:38ch">' + t("plan_p") + '</p></div><div class="card" data-rv="right">' + plannerHtml("") + "</div></div></section>" +
-      '<section class="light sec" id="iletisim"><div class="wrap"><h2 class="h-xl" data-rv="split">' + t("c_t") + '</h2><p data-rv="up" data-d="300" style="margin:24px 0 30px;max-width:40ch;opacity:.75;font-size:18px">' + t("c_p") + '</p><div class="hero-cta" data-rv="up" data-d="450"><a class="btn red" href="' + wa("Hello Swissnova Travel") + '" target="_blank" rel="noopener">' + t("wa") + '</a><a class="btn" href="mailto:' + MAIL + '">' + MAIL + "</a></div></div></section>";
+      '<section class="light sec" id="iletisim"><div class="wrap"><h2 class="h-xl" data-rv="split">' + t("c_t") + '</h2><p data-rv="up" data-d="300" style="margin:24px 0 30px;max-width:40ch;opacity:.75;font-size:18px">' + t("c_p") + '</p><div class="hero-cta" data-rv="up" data-d="450"><a class="btn red" href="' + wa("Hello Swissnova Travel") + '" target="_blank" rel="noopener">' + t("wa") + '</a><a class="btn" href="' + IG + '" target="_blank" rel="noopener">' + igIcon() + ' Instagram</a><a class="btn" href="mailto:' + MAIL + '">' + MAIL + "</a></div></div></section>";
   }
   function toursBody() {
     var kinds = ["all", "lake", "mountain", "city", "package"];
