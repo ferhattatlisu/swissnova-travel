@@ -31,14 +31,20 @@
     ["jungfrau", "Eiger Mönch Jungfrau 01", "Kuebi (Armin Kübelbeck)", "CC BY-SA 3.0"],
     ["rheinfall", "Neuhausen Rhine Falls panorama 3", "Ymblanter", "CC BY-SA 4.0"],
     ["titlis", "Engelberg – Titlis und Fürenalb", "W. Bulach", "CC BY-SA 4.0"],
-    ["blausee", "Blausee, Alpine Lake, Kandersteg", "Banu Srini", "CC BY-SA 4.0"]
+    ["blausee", "Blausee, Alpine Lake, Kandersteg", "Banu Srini", "CC BY-SA 4.0"],
+    ["oeschinensee", "Oeschinensee 0437", "Martin Thurnherr", "CC BY-SA 4.0"],
+    ["kapellbruecke", "Luzern Kapellbruecke", "Ikiwaner", "CC BY-SA 3.0"],
+    ["lauterbrunnen", "View to Lauterbrunnen valley at Mürren", "Ximonic (Simo Räsänen)", "CC BY-SA 4.0"],
+    ["lungern", "Lungerersee, Lungern OW", "Jag9889", "CC BY-SA 4.0"],
+    ["seealpsee", "20200612-seealpsee", "Mc6300", "CC BY-SA 4.0"]
   ];
-  /* ilk slayt: mavi gökyüzü + dağ (ilk saniyede "İsviçre Alpleri" okunsun); yalnız ilk görsel hemen yüklenir */
+  /* hero: göl + zirve ilk saniyede "İsviçre Alpleri" desin; sonra Luzern (firmanın şehri), Lauterbrunnen, Lungern (imza tur).
+     Yalnız ilk görsel hemen yüklenir. Fotoğraflar Wikimedia Commons (künye CREDITS'te). */
   var HERO = [
-    { img: "titlis", cap: "Engelberg, Central Switzerland" },
-    { img: "pilatus-luzern", cap: "Lake Lucerne from Mount Pilatus" },
-    { img: "blausee", cap: "Blausee, Kandersteg" },
-    { img: "rheinfall", cap: "Rhine Falls, Neuhausen" }
+    { img: "oeschinensee", cap: "Oeschinensee, Kandersteg" },
+    { img: "kapellbruecke", cap: "Chapel Bridge, Lucerne" },
+    { img: "lauterbrunnen", cap: "Lauterbrunnen Valley from Mürren" },
+    { img: "lungern", cap: "Lake Lungern, Obwalden" }
   ];
   var PLACES = ["Lucerne", "Jungfrau", "Titlis", "Pilatus", "Rhine Falls", "Blausee", "Interlaken", "Lauterbrunnen", "Iseltwald", "Rigi", "Lungern", "Zurich", "Bern", "Basel", "Geneva", "Montreux"];
   var DREAM_DAYS = [
@@ -436,7 +442,7 @@
       '<section class="light" id="how" style="padding-bottom:clamp(70px,10vw,140px)"><div class="wrap"><p class="label" data-rv="up">' + t("how_label") + '</p><h2 class="h-lg" data-rv="split" style="margin-top:14px">' + t("how_t") + '</h2><ol class="steps">' +
       [1, 2, 3, 4].map(function (n) { return '<li data-rv="up"><b>0' + n + "</b><h3>" + t("how" + n) + "</h3><p>" + t("how" + n + "t") + "</p></li>"; }).join("") + "</ol>" + freeBox() + "</div></section>" +
       '<section class="dark sec"><div class="wrap two"><div><p class="label" data-rv="up">' + t("n_tours") + '</p><h2 class="h-lg" data-rv="split" style="margin:14px 0 18px">' + t("calc_t") + '</h2><p data-rv="up" data-d="300" style="opacity:.7;max-width:38ch">' + t("calc_s") + '</p></div><div class="card" data-rv="right">' + calcHtml("calc-home", false, "lucerne-mount-pilatus-tour") + "</div></div></section>" +
-      '<section class="band dark" data-rv="io"><div class="band-img" data-par=".16"><div class="band-bg" style="background-image:url(images/blausee.jpg)"></div></div><div class="wrap"><p class="label" data-rv="up">' + t("pic_label") + '</p><h2 class="h-xl" data-rv="split" style="margin-top:12px;font-size:clamp(40px,7vw,110px)">' + t("pic_t") + '</h2><p data-rv="up" data-d="350">' + t("pic_p") + '</p><p data-rv="up" data-d="450" style="font-size:14px;opacity:.75">' + t("pic_n") + "</p></div></section>" +
+      '<section class="band dark" data-rv="io"><div class="band-img" data-par=".16"><div class="band-bg" style="background-image:url(images/seealpsee.jpg)"></div></div><div class="wrap"><p class="label" data-rv="up">' + t("pic_label") + '</p><h2 class="h-xl" data-rv="split" style="margin-top:12px;font-size:clamp(40px,7vw,110px)">' + t("pic_t") + '</h2><p data-rv="up" data-d="350">' + t("pic_p") + '</p><p data-rv="up" data-d="450" style="font-size:14px;opacity:.75">' + t("pic_n") + "</p></div></section>" +
       '<section class="light sec" id="story"><div class="wrap two"><div><p class="label" data-rv="up">' + t("story_label") + '</p><h2 class="h-lg" data-rv="split" style="margin:14px 0 22px">' + t("story_t") + '</h2><p class="serif story" data-rv="up" data-d="300">' + t("story_p") + '</p><p data-rv="up" data-d="400" style="margin-top:16px;opacity:.75">' + t("story_p2") + "</p></div>" +
       '<div><p class="label" data-rv="up" style="margin-bottom:8px">' + t("rev_label") + "</p>" + REVIEWS.map(function (r, i) { return '<figure class="quote" data-rv="right" data-d="' + (i * 120) + '"><blockquote>“' + esc(r[0]) + '”</blockquote><figcaption>' + esc(r[1]) + "</figcaption></figure>"; }).join("") + "</div></div></section>" +
       '<section class="light sec ruled"><div class="wrap two"><div><p class="label" data-rv="up">' + t("wx_label") + '</p><h2 class="h-lg" data-rv="split" style="margin:14px 0 18px">' + t("wx_t") + '</h2><p data-rv="up" data-d="300" style="opacity:.75;max-width:40ch">' + t("wx_p") + '</p></div>' +

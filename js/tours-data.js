@@ -1,5 +1,7 @@
 /* Otomatik üretildi: swissnovatravel.com tur sayfalarından (19 Kas 2026). Fiyatlar canlı sitedeki başlık fiyatıdır; DEĞİŞTİRİLMEDİ.
-   21 Kas 2026 düzeltmeleri: kapasite metni 6 misafirle tutarlı, yazım hataları (Grimselpass, Andermatt, " ,"), fotoğraflar eldeki 5 görselden en uygun olana eşlendi. */
+   21 Kas 2026 düzeltmeleri: kapasite metni 6 misafirle tutarlı, yazım hataları (Grimselpass, Andermatt, " ,"), fotoğraflar eldeki 5 görselden en uygun olana eşlendi.
+   21 Kas (2): Lungern, Oeschinensee, Lauterbrunnen ve Seealpsee turlarına kendi yerlerinin fotoğrafı (Wikimedia Commons) kondu.
+*/
 window.TOURS=[
  {
   "slug": "swiss-dream-tour",
@@ -46,7 +48,7 @@ window.TOURS=[
   "sub": "A hidden turquoise lake experience in the heart of Switzerland",
   "price": 800,
   "kind": "lake",
-  "img": "blausee",
+  "img": "lungern",
   "hl": [
    "Visit the stunning turquoise waters of Lake Lungern",
    "Private inflatable boat experience on the lake",
@@ -280,7 +282,7 @@ window.TOURS=[
   "sub": "A scenic alpine experience with picnic",
   "price": 850,
   "kind": "mountain",
-  "img": "titlis",
+  "img": "seealpsee",
   "hl": [
    "Visit the traditional village of Appenzell",
    "Explore Ebenalp and its panoramic mountain views",
@@ -315,7 +317,7 @@ window.TOURS=[
   "sub": "A journey through Switzerland’s most iconic landscapes",
   "price": 800,
   "kind": "mountain",
-  "img": "jungfrau",
+  "img": "lauterbrunnen",
   "hl": [
    "Visit the lakeside village of Iseltwald on Lake Brienz",
    "Explore the vibrant town of Interlaken",
@@ -382,7 +384,7 @@ window.TOURS=[
   "sub": "A magical alpine lake experience with picnic",
   "price": 900,
   "kind": "lake",
-  "img": "blausee",
+  "img": "oeschinensee",
   "hl": [
    "Visit the crystal-clear Blausee surrounded by forest",
    "Explore the stunning alpine lake Oeschinensee",
