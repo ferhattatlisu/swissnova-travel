@@ -59,7 +59,7 @@
   function waitAssets(list) {
     var ps = [];
     (list || []).forEach(function (u) { if (!u) return; ps.push(new Promise(function (res) { var im = new Image(); im.onload = im.onerror = function () { res(); }; im.src = u; })); });
-    return Promise.race([Promise.all(ps), new Promise(function (r) { setTimeout(r, 3500); })]);
+    return Promise.race([Promise.all(ps), new Promise(function (r) { setTimeout(r, 1600); })]);
   }
   function jumpHash() {
     if (!location.hash) { window.scrollTo(0, 0); return; }
@@ -75,8 +75,8 @@
       setTimeout(function () { root.classList.remove("is-loading"); markReady(); }, 150);
       return;
     }
-    var MIN = seen ? 1000 : 1600;   /* yazının küçülmesi en az bu kadar sürer (ms) */
-    var MAX = 5000;                 /* görsel gelmese de en geç bu sürede açılır */
+    var MIN = seen ? 550 : 950;     /* yazının küçülmesi en az bu kadar sürer (ms); 21 Kas: kısaltıldı, ilk ekran beklemesin */
+    var MAX = 1800;                 /* görsel gelmese de en geç bu sürede açılır (eskisi 5000) */
     var SHRINK = 0.62;              /* yükleme bitene kadar yazı bu oranda küçülür */
     var box = null, t0 = 0, timer = null;
 
@@ -99,10 +99,10 @@
     }
     function step() {
       var el = Date.now() - t0;
-      var cap = imageDone ? 1 : 0.6 + 0.25 * clamp((el - MIN * 0.6) / 3000, 0, 1);
+      var cap = imageDone ? 1 : 0.6 + 0.25 * clamp((el - MIN * 0.6) / 1200, 0, 1);
       var p = el >= MAX ? 1 : Math.min(el / MIN, cap);
       place(p);
-      if (p >= 1) { clearInterval(timer); setTimeout(land, 420); }
+      if (p >= 1) { clearInterval(timer); setTimeout(land, 220); }
     }
     function begin() {
       if (box) return;
@@ -117,7 +117,7 @@
     /* yazı tipi gelmeden yazıyı gösterme (sonradan biçim değiştirmesin) */
     var font = document.fonts && document.fonts.load ? document.fonts.load('800 1em "Inter Tight"') : null;
     if (font && font.then) font.then(begin, begin);
-    setTimeout(begin, 1200);
+    setTimeout(begin, 700);
     /* yedek: ne olursa olsun site açılsın */
     setTimeout(function () { if (!ready) { root.classList.remove("is-loading", "is-opening"); markReady(); } }, MAX + 4000);
   }
@@ -215,7 +215,7 @@
       if (same && u.hash) {
         var el = document.getElementById(u.hash.slice(1));
         e.preventDefault(); closeMenu();
-        if (el) { FX.scrollTo(el.getBoundingClientRect().top + window.pageYOffset - 56); try { history.replaceState(null, "", u.hash); } catch (x) {} }
+        if (el) { FX.scrollTo(el.getBoundingClientRect().top + window.pageYOffset - 56); try { history.replaceState(null, "", location.pathname + location.search + u.hash); } catch (x) {} }
         return;
       }
       if (same) { e.preventDefault(); closeMenu(); FX.scrollTo(0); return; }
@@ -280,7 +280,7 @@
       es.forEach(function (e) { var i = fabSet.indexOf(e.target); if (e.isIntersecting) { if (i < 0) fabSet.push(e.target); } else if (i >= 0) fabSet.splice(i, 1); });
       document.body.classList.toggle("fab-off", fabSet.length > 0);
     }, { threshold: 0 });
-    $$("#hero,#planla,#iletisim,.foot", r).forEach(function (el) { fabIO.observe(el); });
+    $$("#hero,#plan,#tplan,#contact,.foot", r).forEach(function (el) { fabIO.observe(el); });
   }
   function splitWords(el) {
     if (el._sp) return; el._sp = 1; var n = 0;
@@ -334,6 +334,8 @@
     $$('[data-rv="split"]', r).forEach(splitWords);
     $$('[data-rv="chars"]', r).forEach(function (el) { if (!el._ch) { el._ch = 1; el.classList.add("cs"); el.innerHTML = chars(el.textContent); } });
     $$("[data-d]", r).forEach(function (el) { el.style.setProperty("--d", el.getAttribute("data-d") + "ms"); });
+    /* sayılar HTML'de gerçek değeriyle durur (botlar ve JS'siz okuyucu için); ekrana gelince 0'dan sayılsın */
+    if (!reduce) $$("[data-count]", r).forEach(function (el) { if (!el.classList.contains("in")) el.textContent = "0"; });
     rollify(r); magnets(r);
     $$("[data-par]", r).forEach(function (el) { par.push({ el: el, host: el.parentElement, s: parseFloat(el.getAttribute("data-par")) || .2 }); });
     $$("[data-marq]", r).forEach(function (el) { marq.push({ el: el, inn: el.firstElementChild, x: 0, w: 0 }); });

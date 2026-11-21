@@ -1,0 +1,37 @@
+# Swissnova Travel
+
+> Family-run private tour and transfer company based in Lucerne, Switzerland. Private day tours in a Mercedes-Benz V-Class for up to 6 guests, priced per group (CHF 650–1000), with hotel pickup in Lucerne, Zurich, Interlaken or nearby and a private picnic on most tours. Free cancellation up to 15 days before the tour; a 20% deposit secures the booking.
+
+## Tours
+
+- [Swiss Dream Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/swiss-dream-tour/): 3 nights, 4 days. CHF 995 per person (group of 6).
+- [Lungern Lake Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/lungern-lake-tour/): A hidden turquoise lake experience in the heart of Switzerland. CHF 800 per group, up to 6 guests.
+- [Klöntalersee Lake Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/kloentalersee-lake-tour/): A peaceful alpine lake experience with boat and picnic. CHF 800 per group, up to 6 guests.
+- [Hallwilersee Lake Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/hallwilersee-lake-tour/): A relaxing lakeside experience with boat and picnic. CHF 800 per group, up to 6 guests.
+- [Lake Brienz Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/brienz-lake-tour/): A turquoise alpine lake experience with boat and picnic. CHF 900 per group, up to 6 guests.
+- [Lake Thun Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/thun-lake-tour/): A scenic alpine lake experience with boat and picnic. CHF 900 per group, up to 6 guests.
+- [Alpine Nature Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/alpine-nature-tour/): Gelmersee, Grimselsee, Grimselpass, Furkapass, and Andermatt Teufelsbrücke. CHF 750 per group, up to 6 guests.
+- [Stäubifall Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/staeubifall-tour/): A hidden waterfall experience with alpine picnic. CHF 800 per group, up to 6 guests.
+- [Appenzell, Ebenalp & Seealpsee Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/appenzell-ebenalp-seealpsee-tour/): A scenic alpine experience with picnic. CHF 850 per group, up to 6 guests.
+- [Iseltwald, Interlaken, Lauterbrunnen & Grindelwald Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/iseltwald-interlaken-lauterbrunnen-grindelwald-tour/): A journey through Switzerland’s most iconic landscapes. CHF 800 per group, up to 6 guests.
+- [Aareschlucht, Rosenlaui & Giessbach Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/aareschlucht-rosenlaui-and-giessbach-tour/): A spectacular nature and waterfall experience with picnic. CHF 800 per group, up to 6 guests.
+- [Blausee & Oeschinensee Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/blausee-and-oeschinensee-tour/): A magical alpine lake experience with picnic. CHF 900 per group, up to 6 guests.
+- [Zurich & Rhine Falls Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/zurich-rhein-fall-tour/): A perfect city and nature experience with picnic. CHF 650 per group, up to 6 guests.
+- [Lucerne, Vitznau & Rigi Kulm Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/lucerne-rigi-lake-cruise-tour/): A classic Swiss mountain and lake experience with cruise. CHF 800 per group, up to 6 guests.
+- [Lucerne & Mount Pilatus Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/lucerne-mount-pilatus-tour/): A spectacular mountain experience with panoramic views and picnic. CHF 800 per group, up to 6 guests.
+- [Engelberg & Mount Titlis Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/engelberg-mount-titlis-tour/): A high alpine glacier experience with panoramic views and picnic. CHF 850 per group, up to 6 guests.
+- [Grindelwald & Jungfrau Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/grindelwald-jungfrau-tour/): A high alpine experience to the Top of Europe with picnic. CHF 950 per group, up to 6 guests.
+- [Bern, Thun & Spiez Private City Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/bern-thun-spiez-tour/): A cultural and scenic Swiss experience. CHF 750 per group, up to 6 guests.
+- [Basel Private City Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/basel-city-tour/): A cultural and artistic Swiss experience. CHF 700 per group, up to 6 guests.
+- [Geneva, Lausanne & Montreux Private City Tour](https://ferhattatlisu.github.io/swissnova-travel/tours/geneva-lausanne-montreux-tour/): A lakeside cultural journey along Lake Geneva. CHF 1000 per group, up to 6 guests.
+
+## Transfers
+
+- [Private transfers](https://ferhattatlisu.github.io/swissnova-travel/transfers/): airport transfers (Zurich, Geneva, Basel), city to city, ski and Alpine resorts, full-day chauffeur, weddings, business and groups. Individual quote per route.
+
+## Contact
+
+- WhatsApp and phone: +41 76 735 55 60
+- E-mail: info@swissnovatravel.com
+- Instagram: https://www.instagram.com/swissnova_travel/
+- Company: Kapti Swissnova Travel, sole proprietorship, Lucerne. UID CHE-204.582.938

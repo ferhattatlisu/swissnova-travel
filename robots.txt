@@ -1,0 +1,5 @@
+# robots.txt yalnız alan adının kökünde geçerlidir (ör. https://www.swissnovatravel.com/robots.txt).
+User-agent: *
+Allow: /
+
+Sitemap: https://ferhattatlisu.github.io/swissnova-travel/sitemap.xml

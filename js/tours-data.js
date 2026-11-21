@@ -1,4 +1,5 @@
-/* Otomatik üretildi: swissnovatravel.com tur sayfalarından (19 Kas 2026). Fiyatlar canlı sitedeki başlık fiyatıdır; DEĞİŞTİRİLMEDİ. */
+/* Otomatik üretildi: swissnovatravel.com tur sayfalarından (19 Kas 2026). Fiyatlar canlı sitedeki başlık fiyatıdır; DEĞİŞTİRİLMEDİ.
+   21 Kas 2026 düzeltmeleri: kapasite metni 6 misafirle tutarlı, yazım hataları (Grimselpass, Andermatt, " ,"), fotoğraflar eldeki 5 görselden en uygun olana eşlendi. */
 window.TOURS=[
  {
   "slug": "swiss-dream-tour",
@@ -45,7 +46,7 @@ window.TOURS=[
   "sub": "A hidden turquoise lake experience in the heart of Switzerland",
   "price": 800,
   "kind": "lake",
-  "img": "titlis",
+  "img": "blausee",
   "hl": [
    "Visit the stunning turquoise waters of Lake Lungern",
    "Private inflatable boat experience on the lake",
@@ -55,8 +56,8 @@ window.TOURS=[
   ],
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
-   "Private hotel pickup and drop-off from your accommodation in cities such as Lucerne , Zurich , or nearby areas",
-   "Comfortable transportation in a VIP Mercedes-Benz V-Class (up to 7 passengers)",
+   "Private hotel pickup and drop-off from your accommodation in cities such as Lucerne, Zurich, or nearby areas",
+   "Comfortable transportation in a VIP Mercedes-Benz V-Class (up to 6 guests)",
    "Professional driver and tour assistance throughout the day",
    "Visit to the stunning turquoise waters of Lake Lungern",
    "Private inflatable boat for your group (capacity: 4 persons)",
@@ -79,7 +80,7 @@ window.TOURS=[
   "sub": "A peaceful alpine lake experience with boat and picnic",
   "price": 800,
   "kind": "lake",
-  "img": "rheinfall",
+  "img": "pilatus-luzern",
   "hl": [
    "Visit the pristine waters of Klöntalersee",
    "Private inflatable boat experience on the lake",
@@ -89,8 +90,8 @@ window.TOURS=[
   ],
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
-   "Private hotel pickup and drop-off from your accommodation in cities such as Lucerne , Zurich , or nearby areas",
-   "Comfortable transportation in a VIP Mercedes-Benz V-Class (up to 7 passengers)",
+   "Private hotel pickup and drop-off from your accommodation in cities such as Lucerne, Zurich, or nearby areas",
+   "Comfortable transportation in a VIP Mercedes-Benz V-Class (up to 6 guests)",
    "Professional driver and tour assistance throughout the day",
    "Visit to Klöntalersee",
    "Private inflatable boat for your group (capacity: 4 persons)",
@@ -113,7 +114,7 @@ window.TOURS=[
   "sub": "A relaxing lakeside experience with boat and picnic",
   "price": 800,
   "kind": "lake",
-  "img": "rheinfall",
+  "img": "pilatus-luzern",
   "hl": [
    "Visit the calm and scenic waters of Hallwilersee",
    "Private inflatable boat experience on the lake",
@@ -124,7 +125,7 @@ window.TOURS=[
   "pickup": "Zurich, Lucerne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Zurich, Lucerne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Hallwilersee",
    "Private inflatable boat (capacity: 4 persons)",
@@ -158,7 +159,7 @@ window.TOURS=[
   "pickup": "Lucerne, Interlaken, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Interlaken, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Lake Brienz",
    "Private inflatable boat (capacity: 4 persons)",
@@ -181,7 +182,7 @@ window.TOURS=[
   "sub": "A scenic alpine lake experience with boat and picnic",
   "price": 900,
   "kind": "lake",
-  "img": "blausee",
+  "img": "pilatus-luzern",
   "hl": [
    "Visit the clear blue waters of Lake Thun",
    "Private inflatable boat experience on the lake",
@@ -192,7 +193,7 @@ window.TOURS=[
   "pickup": "Interlaken, Bern, Lucerne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Interlaken, Bern, Lucerne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Lake Thun",
    "Private inflatable boat (capacity: 4 persons)",
@@ -212,7 +213,7 @@ window.TOURS=[
  {
   "slug": "alpine-nature-tour",
   "title": "Alpine Nature Tour",
-  "sub": "Gelmersee, Grimselsee, Grimsellpass, Furkapass, and Andermat Teufelsbrücke",
+  "sub": "Gelmersee, Grimselsee, Grimselpass, Furkapass, and Andermatt Teufelsbrücke",
   "price": 750,
   "kind": "mountain",
   "img": "jungfrau",
@@ -226,7 +227,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Gelmersee, Grimselsee, Grimselpass, Furkapass, and Andermatt",
    "Multiple scenic stops and viewpoints",
@@ -258,7 +259,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Stäubifall",
    "Scenic nature walk and exploration",
@@ -279,7 +280,7 @@ window.TOURS=[
   "sub": "A scenic alpine experience with picnic",
   "price": 850,
   "kind": "mountain",
-  "img": "rheinfall",
+  "img": "titlis",
   "hl": [
    "Visit the traditional village of Appenzell",
    "Explore Ebenalp and its panoramic mountain views",
@@ -291,7 +292,7 @@ window.TOURS=[
   "pickup": "Zurich, Lucerne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Zurich, Lucerne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Appenzell, Ebenalp, and Seealpsee",
    "Scenic exploration and nature walk",
@@ -326,7 +327,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Iseltwald, Interlaken, Lauterbrunnen, and Grindelwald",
    "Multiple scenic stops and viewpoints",
@@ -358,7 +359,7 @@ window.TOURS=[
   "pickup": "Lucerne, Interlaken, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Interlaken, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Aareschlucht, Rosenlaui, and Giessbach",
    "Scenic walks and exploration",
@@ -393,7 +394,7 @@ window.TOURS=[
   "pickup": "Interlaken, Bern, Lucerne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Interlaken, Bern, Lucerne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Blausee and Oeschinensee",
    "Scenic walks and exploration",
@@ -429,7 +430,7 @@ window.TOURS=[
   "pickup": "Zurich, Lucerne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Zurich, Lucerne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Zurich and Rhine Falls",
    "Scenic stops and exploration",
@@ -464,7 +465,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Lucerne, Vitznau, Rigi Kulm, and Weggis",
    "Scenic stops and exploration",
@@ -500,7 +501,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Lucerne and Mount Pilatus",
    "Scenic stops and exploration",
@@ -535,7 +536,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Engelberg and Mount Titlis",
    "Scenic stops and exploration",
@@ -571,7 +572,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, Interlaken, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, Interlaken, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Grindelwald and Jungfrau region",
    "Scenic stops and exploration",
@@ -595,7 +596,7 @@ window.TOURS=[
   "sub": "A cultural and scenic Swiss experience",
   "price": 750,
   "kind": "city",
-  "img": "blausee",
+  "img": "",
   "hl": [
    "Explore Bern’s UNESCO-listed Old Town",
    "Visit the famous Zytglogge clock tower",
@@ -608,7 +609,7 @@ window.TOURS=[
   "pickup": "Lucerne, Zurich, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Lucerne, Zurich, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Bern, Thun, and Spiez",
    "Free time for exploration in each location",
@@ -643,7 +644,7 @@ window.TOURS=[
   "pickup": "Zurich, Lucerne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Zurich, Lucerne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Guided city exploration of Basel",
    "Free time for cafés and shopping",
@@ -679,7 +680,7 @@ window.TOURS=[
   "pickup": "Geneva, Lausanne, or nearby areas",
   "incl": [
    "Private hotel pickup and drop-off (Geneva, Lausanne, or nearby areas)",
-   "VIP Mercedes-Benz V-Class transportation (up to 7 passengers)",
+   "VIP Mercedes-Benz V-Class transportation (up to 6 guests)",
    "Professional driver and tour assistance",
    "Visit to Geneva, Lausanne, and Montreux",
    "Free time for exploration in each location",
